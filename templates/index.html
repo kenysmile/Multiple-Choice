@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+<body>
+    <h1>Info Hoc Sinh</h1>
+    <div class="container">
+        {% for student in students %}
+        <div id="studentSection{{ student.id }}" class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span id="studentNumber{{ student.id }}"></span> </h3>
+            </div>
+            <div class="panel-body-data">
+                <div class="form-inline">
+                    <div class="form-group" style="display:inline">
+
+                        <label for="tenInput{{ student.id }}">Ten</label>
+                        <input type="text" class="form-control" id="tenInput{{ student.id }}" value="{{ student.ten }}" disabled>
+
+                        <label for="tuoiInput{{ student.id }}">Tuoi</label>
+                        <input type="number" class="form-control" id="tuoiInput{{ student.id }}" value="{{ student.tuoi }}">
+
+                        <label for="diachiInput{{ student.id }}">Dia chi</label>
+                        <input type="text" class="form-control" id="diachiInput{{ student.id }}" value="{{ student.diachi }}">
+                        
+                        <label for="tenidInput{{ student.id }}">Tenid</label>
+                        <input type="number" class="form-control" id="tenidInput{{ student.id }}" value="{{ student.tenid }}">
+
+                        <button type="submit" class="btn btn-primary updateButton" student_id = "{{ student.id }}"> Edit</button>
+        {% endfor %}
+    </div>
+</body>
+</html>

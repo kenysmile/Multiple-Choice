@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Debaidetail</title>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+    <form class = 'btn-add-cauhoi' style="text-align:left" action="/addcauhoi"  method="POST">
+        <h2>Add Cau hoi</h2>
+            CAu hoi:<br>
+            <input type="text" name="cauhoi"><br>
+            Dap an A:<br>
+            <input type="text" name="dapana"><br>
+            Dap an B`:<br>
+            <input type="text" name="dapanb"><br>
+            Dap an C:<br>
+            <input type="text" name="dapanc"><br>
+            Dap an D:<br>
+            <input type="text" name="dapand"><br>
+            Dap an:<br>
+            <input type="text" name="dapan"><br>
+            <input type="submit" value="Add"><br>
+    </form>
+    
+    {% for ch in cauhoi %}
+        {{ ch.cauhoi }}
+        {{ ch.dapana }}
+        {{ ch.dapanb }}
+        {{ ch.dapanc }}
+        {{ ch.dapand }}
+        <div class="panel-body-data">
+            <div class="form-inline">
+                <div class="form-group" style="display:inline">
+                    <h2>{{ ch.id }}</h2>
+                    <label for="cauhoiInput{{ ch.id }}">Cauhoi</label>
+                    <input type="text" class="form-control" id="cauhoiInput{{ ch.id }}" value="{{ ch.cauhoi }}"><br>
+        
+                    <label for="dapanaInput{{ ch.id }}">Dap an A</label>
+                    <input type="text" class="form-control" id="dapanaInput{{ ch.id }}" value="{{ ch.dapana }}"><br>
+
+                    <label for="dapanbInput{{ ch.id }}">Dap an B</label>
+                    <input type="text" class="form-control" id="dapanbInput{{ ch.id }}" value="{{ ch.dapanb }}"><br>
+
+                    <label for="dapancInput{{ ch.id }}">Dap an C</label>
+                    <input type="text" class="form-control" id="dapancInput{{ ch.id }}" value="{{ ch.dapanc }}"><br>
+
+                    <label for="dapandInput{{ ch.id }}">Dap an D</label>
+                    <input type="text" class="form-control" id="dapandInput{{ ch.id }}" value="{{ ch.dapand }}"><br>
+
+                    <label for="dapandInput{{ ch.id }}">Dap an</label>
+                    <input type="text" class="form-control" id="dapandInput{{ ch.id }}" value="{{ ch.dapan }}"><br>
+            
+            
+                    <button type="submit" class="btn btn-primary updatecauhoiButton" cauhoi_id = "{{ ch.id }}"> Sua </button>
+                    <a class="btn-xemcauhoi"style="font-size:12pt" href="{{ url_for('debaidetail', id = ch.id) }}"> Xoa </a>
+                    <br>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+
+</body>
+</html>

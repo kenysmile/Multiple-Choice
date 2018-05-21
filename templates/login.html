@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo</title>
+</head>
+<body>
+    <h1>Login</h1>
+
+    <form action="/login" method="POST">
+        <input type="text" name="ten">
+        <input type="text" name="matkhau">
+        <input type="submit" value="truy cap">
+
+    </form>
+    {% if errorlogin %}
+    <p class="error-login"><strong>Error:</strong>{{ errorlogin }}</p>
+    {% endif %}
+
+
+</body>
+</html>

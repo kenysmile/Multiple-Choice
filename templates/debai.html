@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Debaidetail</title>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+    
+    {% for showdebai in showdebais %}
+    <a class="btn-showdebai"style="font-size:12pt" href="{{ url_for('debaidetail', id = showdebai.id) }}"> De {{ showdebai.id }} </a><br> 
+    {% endfor %}
+
+</body>
+</html>

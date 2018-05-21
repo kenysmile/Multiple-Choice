@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo</title>
+</head>
+<body>
+
+    {for }
+        <input type="text" name="user">
+        <input type="text" name="password">
+
+        <input type="submit" value="acess">
+        <button type="submit" class="btn btn-primary updateButton" todo_id = ""> Edit</button>
+
+    {% if erroracess %}
+    <p class="error-acess"><strong>Error:</strong>{{ erroracess }}</p>
+    {% endif %}
+
+</body>
+</html>

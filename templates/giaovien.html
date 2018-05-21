@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <h1>Teacher</h1>
+    <form class = 'btn-add' style="text-align:left" action="/debai"  method="POST">
+            <input type="submit" value="De bai"><br>
+    </form>
+    <div class="debai">
+        <h1>ALo </h1>
+        {% for debai in debais %}
+        <div class="panel-body-data">
+            <div class="form-inline">
+                <div class="form-group" style="display:inline">
+                    <a class="btn-xem"style="font-size:12pt" href="{{ url_for('debaidetail', id = debai.id) }}"> De bai </a> 
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <form class = 'btn-add' style="text-align:left" action="/add>"  method="POST">
+        <h2>Add Studen</h2>
+            Ten:<br>
+            <input type="text" name="ten"><br>
+            Matkhau:<br>
+            <input type="text" name="matkhau"><br>
+            <br>
+            <input type="submit" value="Add"><br>
+    </form>
+    <div class="container">
+        {% for student in students %}
+            <div id="studentSection{{ student.id }}" class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><span id="studentNumber{{ student.id }}"></span> </h3>
+                </div>
+                <div class="panel-body-data">
+                    <div class="form-inline">
+                        <div class="form-group" style="display:inline">
+
+                            <label for="tenInput{{ student.id }}">Ten</label>
+                            <input type="text" class="form-control" id="tenInput{{ student.id }}" value="{{ student.ten }}">
+
+                            <label for="tuoiInput{{ student.id }}">Tuoi</label>
+                            <input type="number" class="form-control" id="tuoiInput{{ student.id }}" value="{{ student.tuoi }}">
+
+                            <label for="diachiInput{{ student.id }}">Dia chi</label>
+                            <input type="text" class="form-control" id="diachiInput{{ student.id }}" value="{{ student.diachi }}">
+                            
+                            <label for="tenidInput{{ student.id }}">Tenid</label>
+                            <input type="number" class="form-control" id="tenidInput{{ student.id }}" value="{{ student.tenid }}">
+
+                            <button type="submit" class="btn btn-primary updateButton" student_id = "{{ student.id }}"> Edit</button>
+                            <a class="btn-delete"style="font-size:12pt" href="{{ url_for('delete', id = student.id) }}"> Delete</a> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+
+</body>
+</html>
